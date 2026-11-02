@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "test": "jest --detectOpenHandles --forceExit"
+    "test": "jest --detectOpenHandles --forceExit",
+    "test:headed": "HEADLESS=false jest --detectOpenHandles --forceExit"
   },
   "dependencies": {
   },
