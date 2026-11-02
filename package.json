@@ -1,0 +1,15 @@
+{
+  "name": "BULME Infra Web Autotests",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "test": "jest --detectOpenHandles --forceExit"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "jest": "^30.5.2",
+    "selenium-webdriver": "^4.52.0"
+  }
+}
