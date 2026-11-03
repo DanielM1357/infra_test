@@ -2,10 +2,20 @@ const { By, until } = require('selenium-webdriver');
 const { createDriver } = require('./driverFactory');
 
 
-async function test_login() {
-    let driver = await createDriver();
+describe ('Nextcloud login', () => {
+    let driver;
 
-    try{
+    beforeEach(async () => {
+        driver = await createDriver();
+    });
+
+    afterEach(async () => {
+        if (driver) {
+            await driver.quit();
+        }
+    });
+
+    test('login test', async () => {
         await driver.get("https://nextcloud.bulme.at/index.php/login?clear=1");
 
         let username = await driver.wait(until.elementLocated(By.id('username')));
@@ -17,10 +27,5 @@ async function test_login() {
         await driver.wait(until.urlContains('/dashboard'), 1000); // actual home instead of `/dashboard`
         console.log('Login was successfull.');
     
-    } catch (error) {
-        console.log('Login FAILED: ', error);
-    } finally {
-        await driver.quit();
-    }
-}
-test_login();
+    });
+});
