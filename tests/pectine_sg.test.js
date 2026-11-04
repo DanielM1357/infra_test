@@ -1,4 +1,4 @@
-'https://pectine.bulme.at/~sg/autotest.txt'
+
 
 
 const { createDriver } = require('./driverFactory.js');
@@ -19,7 +19,7 @@ describe("Pectine autotest", () => {
   });
 
   test("try get url and proof autotest passed", async () => {
-    await driver.get('https://pectine.bulme.at');
+    await driver.get('https://pectine.bulme.at/~sg/autotest.txt');
 
     await driver.wait(
       until.elementLocated(By.xpath('//*[contains(text(), "PASSED")]')), 10000);
