@@ -18,13 +18,16 @@ describe ('Nextcloud login', () => {
     test('login test', async () => {
         await driver.get("https://nextcloud.bulme.at/index.php/login?clear=1");
 
-        let username = await driver.wait(until.elementLocated(By.id('username')));
-        await username.sendKeys('$TEST_USERNAME');
+        let username = await driver.wait(until.elementLocated(By.id('user')));
+        await username.sendKeys('$STUDENT_USER'); // $STUDENT_USER
 
         let password = await driver.wait(until.elementLocated(By.id('password')));
-        await username.sendKeys('$TEST_PASSWORD');
+        await password.sendKeys('$STUDENT_PASS'); // $STUDENT_PASS
 
-        await driver.wait(until.urlContains('/dashboard'), 1000); // actual home instead of `/dashboard`
+        let submit = await driver.wait(until.elementLocated(By.id('submit-form')));
+        await submit.submit();
+
+        await driver.wait(until.urlContains('/apps'), 6000);
         console.log('Login was successfull.');
     
     });
