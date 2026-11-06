@@ -1,6 +1,8 @@
 const { createDriver } = require('./driverFactory.js');
 const { By, until } = require('selenium-webdriver');
 
+// Set timeout for all tests to 30 seconds
+jest.setTimeout(30000);
 
 describe("Pectine redirect to Bulme", () => {
   let driver;

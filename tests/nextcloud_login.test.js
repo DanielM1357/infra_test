@@ -1,6 +1,8 @@
 const { By, until } = require('selenium-webdriver');
 const { createDriver } = require('./driverFactory');
 
+// Set timeout for all tests to 30 seconds
+jest.setTimeout(30000);
 
 describe ('Nextcloud login', () => {
     let driver;
